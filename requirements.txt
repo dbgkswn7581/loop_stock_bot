@@ -1,0 +1,6 @@
+discord.py
+asyncio
+discord
+datetime
+firebase_admin
+numpy
