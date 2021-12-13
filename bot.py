@@ -91,5 +91,9 @@ async def stop(ctx, *text):
             
     elif len(text) == 1:
         await ctx.send('Input Password!')
+        
+@client.event
+async def on_command_error(ctx, error):
+    print('ctx : {}, error : {}'.format(ctx, error))
 
 client.run(os.environ['token'])
