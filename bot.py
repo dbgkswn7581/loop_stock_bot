@@ -11,7 +11,9 @@ client = commands.Bot(command_prefix="$")
 @client.event
 async def on_ready():
     game = discord.Game("LOOP FOR MG BOT")
+    refresh.start()
     await client.change_presence(status = discord.Status.online, activity = game)
+    
 
 @tasks.loop(seconds=240)
 async def refresh():
