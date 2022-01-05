@@ -2,28 +2,28 @@ import os
 import discord
 from discord.colour import Color
 from discord.ext import commands, tasks
-from discord.ext.commands import bot
-from randoms import random_value
-
+import time
 
 client = commands.Bot(command_prefix="$")
 
 @client.event
 async def on_ready():
     game = discord.Game("LOOP FOR MG BOT")
-    refresh.start()
     await client.change_presence(status = discord.Status.online, activity = game)
-    
 
 @tasks.loop(seconds=240)
 async def refresh():
     from refresh import refresh
-    refresh()
+    from restock import restock
 
-# @tasks.loop(seconds=5)
-# async def restock():
-#     from restock import restock
-#     restock()
+    for i in range(20):
+        if not i == 19:
+            restock()
+            time.sleep(12)
+        elif i == 19:
+            restock()
+            refresh()
+
 
 
 @client.command(name='start')
@@ -40,15 +40,7 @@ async def start(ctx, *text):
             )
 
             await ctx.send(embed=embed)
-
-        # elif str(pw) == "6213" and order == 'restock':
-        #     restock.start()
-        #     print("start process - restock")
-        #     embed = discord.Embed(title = "Sussess Start",
-        #     description = "Start Loop - `ReStcok`" , color = discord.Color.dark_gold()
-        #     )
-
-        #     await ctx.send(embed=embed)
+        
 
         else:
             embed = discord.Embed(title = "Wrong PassWord",
@@ -74,15 +66,7 @@ async def stop(ctx, *text):
             )
 
             await ctx.send(embed=embed)
-
-        # elif str(pw) == "6213" and order == 'restock':
-        #     restock.stop()
-        #     print("stop process - restcok")
-        #     embed = discord.Embed(title = "Sussess Stop",
-        #     description = "Stop Loop - `ReStcok`" , color = discord.Color.dark_gold()
-        #     )
-
-        #     await ctx.send(embed=embed)
+        
 
         else:
             embed = discord.Embed(title = "Wrong PassWord",
@@ -93,9 +77,6 @@ async def stop(ctx, *text):
             
     elif len(text) == 1:
         await ctx.send('Input Password!')
-        
-@client.event
-async def on_command_error(ctx, error):
-    print('ctx : {}, error : {}'.format(ctx, error))
 
-client.run(os.environ['token'])
+# client.run(os.environ['token'])
+client.run('ODE0MzExODc5MzA3NTU4OTQy.YDcBCQ.mM629IJgb7mwbWqDWbwKW_KIwxE') 
