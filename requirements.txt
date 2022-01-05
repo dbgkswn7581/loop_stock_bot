@@ -2,6 +2,6 @@ discord.py
 asyncio
 discord
 datetime
-beatifulsoup4
+beautifulsoup4
 numpy
 requests
