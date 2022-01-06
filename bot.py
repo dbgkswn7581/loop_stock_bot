@@ -78,5 +78,4 @@ async def stop(ctx, *text):
     elif len(text) == 1:
         await ctx.send('Input Password!')
 
-# client.run(os.environ['token'])
-client.run('ODk1ODkyMjY2MDEzNTg1NDE5.YV_KsQ.jl1cEuSLeIBT3SyqhpLHcpRq3pA') 
+client.run(os.environ['token'])
