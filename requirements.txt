@@ -5,3 +5,4 @@ datetime
 beautifulsoup4
 numpy
 requests
+psycopg2
