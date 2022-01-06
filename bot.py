@@ -19,7 +19,7 @@ async def refresh():
     for i in range(20):
         if not i == 19:
             restock()
-            time.sleep(12)
+            time.sleep(10)
         elif i == 19:
             restock()
             refresh()
@@ -78,4 +78,5 @@ async def stop(ctx, *text):
     elif len(text) == 1:
         await ctx.send('Input Password!')
 
-client.run(os.environ['token'])
+# client.run(os.environ['token'])
+client.run('ODk1ODkyMjY2MDEzNTg1NDE5.YV_KsQ.jl1cEuSLeIBT3SyqhpLHcpRq3pA') 
