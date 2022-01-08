@@ -16,11 +16,10 @@ async def refresh():
     from refresh import refresh
     from restock import restock
 
-    for i in range(20):
-        if not i == 19:
+    for i in range(10):
+        if not i == 9:
             restock()
-            time.sleep(10)
-        elif i == 19:
+        elif i == 9:
             restock()
             refresh()
 
