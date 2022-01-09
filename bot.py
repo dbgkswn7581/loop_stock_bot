@@ -11,7 +11,7 @@ async def on_ready():
     game = discord.Game("LOOP FOR MG BOT")
     await client.change_presence(status = discord.Status.online, activity = game)
 
-@tasks.loop(seconds=240)
+@tasks.loop(seconds=270)
 async def refresh():
     from refresh import refresh
     from restock import restock
